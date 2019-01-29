@@ -45,9 +45,6 @@ Once the database is located, we need to analyze it's structure to create our NL
 
 This will run a predefined set of queries to obtain a list of existing tables, entities, and relations.
 
-We could then use these tokens as a dataset for a machine learning algorithm which would enable more fluid communication.
-For example, if a preschool database has a "Student" entity, we should be able to look there when a user queries the database for information on "Children".
-
 ### Main Event Loop
 
 The user can communicate with it in various ways:
@@ -58,8 +55,6 @@ The user can communicate with it in various ways:
 
 If the input is verbal we will use a speech recognition API to parse it into text, our current candidate is Google's offering. The text will then go through the NLTK library to be tokenized and analyzed for meaning and intent.
 
-We then match these tokens with our database mappings either directly or tangentially ("children" -> "Students") to understand which entities we need to interact with.
-
 Finally, with the deduced intent and matched tokens we can build the proper SQL query to send to the database.
 
 The results are then displayed to the user.
@@ -69,3 +64,10 @@ The results are then displayed to the user.
 All throughout the main event loop, our API will be able to respond with relevant warnings and errors, but also suggestions and requests for further actions.
 
 This could arise when a user wants to run an action they might not have the permissions to do such as viewing particular data, then the API could inform the user or prompt them for further authentication.
+
+## Further Potential Improvements
+
+We could run the analyzed database tokens through a machine learning algorithm to enable more fluid communication.
+For example, if a preschool database has a "Student" entity, we should be able to look there when a user queries the database for information on "Children".
+
+We can then match queries either directly or tangentially ("children" -> "Students") to the proper entities.
